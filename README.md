@@ -30,10 +30,11 @@ Here's the setup photo.
 
 ![Setup](https://raw.githubusercontent.com/andriyadi/Espruino-ElectricityMeterReader/master/Setup.jpg)
 
-I admit that my wiring is wrong in that photo. The correct wiring: 
-AO of light sensor <—> A5 of Espruino Pico
-VCC of light sensor <—> 3.3v of Espruino Pico
-GND of light sensor <—> GND of Espruino Pico
+I admit that my wiring is wrong in that photo. 
+The correct wiring: 
+* AO of light sensor <—> A5 of Espruino Pico
+* VCC of light sensor <—> 3.3v of Espruino Pico
+* GND of light sensor <—> GND of Espruino Pico
 
 
 ##How It Looks
