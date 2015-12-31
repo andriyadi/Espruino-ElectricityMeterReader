@@ -17,4 +17,14 @@ Edit these parts:
 
 In `ios` folder, also adjust the value for MQTT Server. Drill down and look at `ViewController` file, and change `MQTT_SERVER` constant value.
 
-Enjoy! Happy New Year 2016.
+##How It Looks
+###Espruino app
+![Espruino Web IDE](https://raw.githubusercontent.com/andriyadi/Espruino-ElectricityMeterReader/master/Capture-EspruinoWebIDE.png)
+
+###iOS app
+![iOS app](https://raw.githubusercontent.com/andriyadi/Espruino-ElectricityMeterReader/master/Capture-iOSApp.png)
+
+Custom IoT/hardware for your startup? Contact DycodeX (office at dycode dot com)
+
+That's it for now, enjoy! Happy New Year 2016.
+
