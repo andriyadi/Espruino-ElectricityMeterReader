@@ -6,3 +6,14 @@ This project contains two parts:
 * Xcode project for iOS app. Code in Objective-C.
 
 
+##Usage
+In `espruino` folder, there's a `code.js` file.
+
+
+Edit these parts:
+* `<YOUR_SSID_NAME>	`: WiFi access point SSID to use
+* `<YOUR_SSID_PASS>`: WiFi access point password
+* `<YOUR_MQTT_SERVER>`: MQTT server to use. For testing, you can use Hive-MQ broker: `broker.hivemq.com`
+
+
+

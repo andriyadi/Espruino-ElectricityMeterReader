@@ -33,7 +33,7 @@ var i = setInterval(function() {
   //0.1 value is by experiment, adjust it based on your setup. 
   //For photosensitive diode, lower the value, brigther the light detected
   if (v < 0.1) { 
-    if (!isOn) {
+    if (isOn === false) {
       isOn = true;
       console.log(v);
       
@@ -51,16 +51,17 @@ var i = setInterval(function() {
  */
 
 // Constants
-var SSID_NAME = "DyWare-AP3";//"<YOUR_SSID_NAME>";//
-var SSID_PASS = "p@ssw0rd";//"<YOUR_SSID_PASS>";//
+var SSID_NAME = "<YOUR_SSID_NAME>";
+var SSID_PASS = "<YOUR_SSID_PASS>";
 
-var MQTT_SERVER = "broker.hivemq.com";//"<YOUR_MQTT_SERVER>"; //
+var MQTT_SERVER = "<YOUR_MQTT_SERVER>";
 var MQTT_PORT = 1883;
 var MQTT_TOPIC = "andriyadi/xxxxyyyy01/wattage";
 
 var TELEMETRY_INTERVAL = 3000; //3 seconds
 
-digitalWrite(B9,1); // enable on Pico Shim V2
+digitalWrite(B9,0); // disable on Pico Shim V2
+digitalWrite(B9,1); // reenable on Pico Shim V2
 Serial2.setup(115200, { rx: A3, tx : A2 });
 
 var mqttconnected = false;
@@ -82,7 +83,8 @@ mqtt.on('disconnected', function() {
     if (mqttconnected) return;
     
     console.log("Reconnect to MQTT in 5 seconds");
-    mqtt.connect({port: MQTT_PORT});   
+    mqtt.connect();
+    
   }, 5000);
 });
 
@@ -91,17 +93,23 @@ mqtt.on('disconnected', function() {
 var myClock;
 
 function prepareRealTimeClock(cb) {
-  require("http").get("http://currentmillis.com/time/milliseconds-since-unix-epoch/", function(res) {
+  require("http").get("http://currentmillis.com/time/seconds-since-unix-epoch/", function(res) {
     res.on('data', function(data) {
       console.log("HTTP> "+data);
       
       try {
-        var ms = parseInt(data, 10);
-        var Clock = require("clock").Clock;
-        myClock = new Clock();
-
-        myClock.setClock(ms);
-        cb(null, true);
+        var s = parseInt(data, 10);
+        //console.log("Parsed second: " + s);
+        
+        if (isNaN(s) === false) {
+          var Clock = require("clock").Clock;
+          myClock = new Clock();
+          myClock.setClock(s*1000);
+          cb(null, true);
+        }
+        else {
+          cb(ex, false);
+        }
       }
       catch(ex) {
         cb(ex, false);
@@ -121,17 +129,16 @@ var wifi = require("ESP8266WiFi_0v25").connect(Serial2, function(err) {
     console.log("Connecting to WiFi...");
     wifi.connect(SSID_NAME, SSID_PASS, function(err) {
       if (err) throw err;
-      console.log("WIFI Connected!");    
+      console.log("WIFI Connected!");
       
-      mqtt.connect(); 
-      /*
       prepareRealTimeClock(function(err, result) {
         if (!err) {
           console.log(myClock.getDate().toString());    
         }
-        //mqtt.connect({port: MQTT_PORT}); 
+        
+        mqtt.connect(); 
       });      
-       */
+       
     });
   });
 });
@@ -147,7 +154,7 @@ setInterval(function() {
   
   //var dt = myClock? myClock.getDate().toString(): new Date().toString();
   
-  var dt = Date.now();//myClock? myClock.getDate().getTime(): Date.now();
+  var dt = myClock? myClock.getDate().getTime(): Date.now();
   
   var payload = JSON.stringify({    
     wattage: lastWattage,
