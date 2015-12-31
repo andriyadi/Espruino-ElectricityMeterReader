@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAN-uu-eDH">
+                                <rect key="frame" x="225" y="320" width="150" height="150"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.30588235294117649" green="0.70588235294117652" blue="0.68627450980392157" alpha="0.76000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="O0m-hp-Bfc"/>
+                                    <constraint firstAttribute="width" constant="150" id="nWx-OV-HL4"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="-20" minY="106" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="9" minY="-20" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="OFF" image="IconIncandescentOff"/>
+                                <state key="selected" title="ON" image="IconIncandescentOn"/>
+                                <connections>
+                                    <action selector="switchButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yIO-gX-OG4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiE-cS-g8n">
+                                <rect key="frame" x="200" y="120" width="200" height="20.5"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="nqc-dI-SxP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rD3-cY-o4C">
+                                <rect key="frame" x="180" y="152.5" width="240" height="70"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="LiX-Su-0ZY"/>
+                                    <constraint firstAttribute="width" constant="240" id="dYd-co-SWh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="70"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="kW" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JL1-Qe-fyf">
+                                <rect key="frame" x="430" y="167" width="70" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="QFS-Ih-IBG"/>
+                                    <constraint firstAttribute="width" constant="70" id="zGW-bf-5Od">
+                                        <variation key="widthClass=compact" constant="60"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YAN-uu-eDH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2JU-xM-OoR"/>
+                            <constraint firstItem="rD3-cY-o4C" firstAttribute="top" secondItem="oiE-cS-g8n" secondAttribute="bottom" constant="12" id="Ffl-YZ-GZ2"/>
+                            <constraint firstItem="YAN-uu-eDH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="300" id="FjN-Lm-YJr"/>
+                            <constraint firstItem="JL1-Qe-fyf" firstAttribute="leading" secondItem="rD3-cY-o4C" secondAttribute="trailing" constant="10" id="GVN-1L-gKU"/>
+                            <constraint firstItem="oiE-cS-g8n" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="InG-Ur-AKU"/>
+                            <constraint firstItem="oiE-cS-g8n" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kmj-ZH-1pK"/>
+                            <constraint firstItem="rD3-cY-o4C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QkX-Qe-Ue3"/>
+                            <constraint firstItem="JL1-Qe-fyf" firstAttribute="centerY" secondItem="rD3-cY-o4C" secondAttribute="centerY" id="nWZ-YG-9HC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateTimeLabel" destination="oiE-cS-g8n" id="qim-WM-xDa"/>
+                        <outlet property="switchButton" destination="YAN-uu-eDH" id="eRl-7K-HDe"/>
+                        <outlet property="wattageLabel" destination="rD3-cY-o4C" id="fsl-em-5bX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="374"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="IconIncandescentOff" width="118" height="123"/>
+        <image name="IconIncandescentOn" width="118" height="123"/>
+    </resources>
+</document>
